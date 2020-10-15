@@ -14,7 +14,7 @@ npm i class-modify
 ```js
 import { modifyClass } from 'class-modify';
 
-const classes = modify('test one two');
+const classes = modifyClass('test one two');
 console.log(classes.add('three').toString()); // --> test one two three
 console.log(classes.remove('two').toString()); // --> test one three
 console.log(classes.toggle('three').toString()); // --> test one
