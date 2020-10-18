@@ -70,8 +70,22 @@ export class ClassList {
     }
 }
 
-export function modifyClass(classString: string): ClassList {
-    const classListInst = new ClassList(classString);
+export function modifyClass(...classStrings: string[]): ClassList {
+    const classListInst = new ClassList(...classStrings);
     classListInst.enabledLogs = false;
+    return classListInst;
+}
+
+export function modifyClassOnElements(selector: string, ...classStrings: string[]): ClassList {
+    const elements = [...document.querySelectorAll(selector)];
+    const classListInst = modifyClass(...classStrings);
+    elements.forEach(el => {
+        el.setAttribute('class', classListInst.toString());
+    });
+    classListInst.subscribe((classString) => {
+        elements.forEach(el => {
+            el.setAttribute('class', classString);
+        });
+    });
     return classListInst;
 }
