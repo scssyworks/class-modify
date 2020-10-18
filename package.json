@@ -1,6 +1,6 @@
 {
   "name": "class-modify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A tiny package to manage and modify classes",
   "author": "scssyworks",
   "main": "dist/umd/classModify.js",
